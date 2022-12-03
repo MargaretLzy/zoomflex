@@ -1,0 +1,13 @@
+import React,{useState} from 'react';
+
+export const VideoListItem = ({item, deleteVideoProp}) =>{
+
+    const deleteVideo = _ => {deleteVideoProp(item)}
+    
+    return<div className ="card">
+        <div>{item.title}</div>
+        <div>  <img src={item.image}></img></div>
+        <div>{item.genre}</div>
+        <div><input type ="button" value ="Delete" onClick ={deleteVideo}/> </div>
+    </div>;
+};
