@@ -1,0 +1,38 @@
+import React,{useState} from 'react';
+
+export const VideoForm=({addVideoP}) =>{
+
+    const [title,setTitle] = useState('');
+    const [image,setImage]= useState('');
+    const [genre,setGenre]= useState('');
+
+    const addVideo =_ => {
+        addVideoP({
+        id: (new Date).getTime(),
+        title,image,genre
+    })
+    setTitle('');
+    setImage('');
+    setGenre('');
+}
+    return<div>
+        <h1>Add Video</h1>
+        <input type= "text" placeholder ='title' value={title} onChange={
+            event=>{
+           setTitle(event.target.value) 
+            }
+        }/>
+        <input type= "text" placeholder ='image'value={image} onChange={
+            event=>{
+           setImage(event.target.value) 
+            }
+        }/>
+        <input type= "text" placeholder ='genre' value={genre} onChange={
+            event=>{
+            setGenre(event.target.value) 
+            }
+        }/>
+        <input type= "button" value= 'Add' onClick={addVideo}/>
+    </div>
+}
+      
